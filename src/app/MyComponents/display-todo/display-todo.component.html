@@ -1,0 +1,8 @@
+<div class="mb-4 text-center">
+    <app-card title="{{todo.title}}"
+     description="{{todo.desc}}"
+      [item]="todo"
+      (itemClicked)="handleClick($event)"
+    >
+    </app-card>
+</div>
