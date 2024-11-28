@@ -54,7 +54,7 @@ export const Default: Story = {
 //   },
 // };
 
-export const LongDescription: Story = {
+export const LongDescriptionCard: Story = {
   args: {
     title: 'Long Description Todo',
     description:
@@ -68,4 +68,24 @@ export const LongDescription: Story = {
     primary: true,
     cardBoxShadow: false,
   },
+};
+
+export const ColoredCard: Story = {
+  args: {
+    title: "Default Title",
+    description: "This is a default description.",
+
+    item: {
+      "sno": 1,
+      "title": "Sample Todo",
+      "desc": "This is a sample description for the todo item.",
+      "active": true
+    },
+
+    primary: true,
+    cardBoxShadow: true,
+    cardBgColor: "#b2edf0",
+    cardBorderColor: "#ffffff",
+    buttonBgColor: "#d93b3b"
+  }
 };
