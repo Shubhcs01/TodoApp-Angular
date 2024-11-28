@@ -1,12 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 import { fn } from '@storybook/test';
-
+import { withActions } from '@storybook/addon-actions/decorator';
 import { ButtonComponent } from './button.component';
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta: Meta<ButtonComponent> = {
   title: 'Atom/Button',
   component: ButtonComponent,
+  parameters: {
+    actions: {
+      handles: ['mouseover', 'click .storybook-button'],
+    },
+  },
+  decorators: [withActions],
   tags: ['autodocs'],
   argTypes: {
     backgroundColor: {
@@ -20,16 +25,14 @@ const meta: Meta<ButtonComponent> = {
       control: 'select', 
       options: ['small','medium','large'], 
       defaultValue: 'medium',
-    }
+    },
   },
-  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
-  args: { onClick: fn() },
+  args: { onClick: fn() }, //actions
 };
 export default meta;
 
 type Story = StoryObj<ButtonComponent>;
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const PrimaryButton: Story = {
   args: {
     primary: true,
@@ -49,6 +52,10 @@ export const Large: Story = {
     size: 'large',
     label: 'Button',
   },
+};
+
+export const LargeSecondaery: Story = {
+  args: {...Large.args, ...Secondary.args},
 };
 
 export const Small: Story = {
