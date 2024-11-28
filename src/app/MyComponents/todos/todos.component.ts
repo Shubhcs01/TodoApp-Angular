@@ -44,7 +44,7 @@ export class TodosComponent implements OnInit {
   }
 
   addTodo(newtodo: Todo){
-    this.todos.push(newtodo);
+    this.todos.push({...newtodo, sno: Number(this.todos[this.todos.length-1].sno)+1});
   }
 
 
